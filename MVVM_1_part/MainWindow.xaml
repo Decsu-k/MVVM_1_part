@@ -13,9 +13,10 @@
     <StackPanel>
         <!--Binding, собственно, соединяет текстовое поле со свойством в VM -->
         <!--UpdateSourceTrigger, в данном случае, выполняет передачу значение в VM в момент ввода -->
-        <TextBox Width="30" Text="{Binding Number1, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Width="30" Text="{Binding Number2, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox FontSize="55" Text="{Binding Number1, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" FontSize="55" Text="{Binding Number2, UpdateSourceTrigger=PropertyChanged}"/>
         <!--Mode=OneWay необходим для призязки свойства только для чтения -->
-        <TextBox Width="30" Text="{Binding Number3, Mode=OneWay}" IsReadOnly="True"/>
+        <TextBox Grid.Column="2" FontSize="55" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Number3, Mode=OneWay}" IsReadOnly="True"/>
+
     </StackPanel>
 </Window>

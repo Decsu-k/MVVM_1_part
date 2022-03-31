@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace MVVM_1_part
 {
-    public class MainVM : INotifyPropertyChange
+    class MainVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private int _number1 = 1;
+
+        private int _number1;
         public int Number1
         {
             get { return _number1; }
@@ -25,23 +26,14 @@ namespace MVVM_1_part
             }
         }
 
-        private int _number2 = 2;
+        private int _number2;
         public int Number2
         {
             get { return _number2; }
-            set { _number1 = value; OnPropertyChanged("Number3"); }
+            set { _number2 = value; OnPropertyChanged("Number3"); }
         }
 
-        public int Number3
-        {
-            get
-            {
-                return MathFuncs.GetSumOf(Number1, Number2);
-            }
+        public int Number3 => MathFuncs.GetSumOf(Number1, Number2);
 
-        }
-    }
-    public interface INotifyPropertyChange
-    {
     }
 }
